@@ -75,5 +75,5 @@ If you’d like to collaborate or apply for a position, please reach out via ema
 </p>
 
 <p align="center">
-  <img src="https://cdn.automargin.eu/assets/email/logo-company-light.png" width="80" alt="Auto Margin Logo" />
+  <img src="https://auto-margin.com/assets/logo-DqEs_V5l.png" width="80" alt="Auto Margin Logo" />
 </p>
