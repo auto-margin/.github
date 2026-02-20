@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://cdn.automargin.eu/assets/email/logo-company-light.png" width="140" alt="Auto Margin Logo" />
+  <img src="https://auto-margin.com/assets/logo-DqEs_V5l.png" width="140" alt="Auto Margin Logo" />
 </p>
 
 <h2 align="center">Auto Margin — The Future of Automotive Price Intelligence</h2>
