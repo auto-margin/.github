@@ -1,0 +1,9 @@
+# sync.yml
+group:
+  - files:
+      - source: .github/ISSUE_TEMPLATE
+        dest: .github/ISSUE_TEMPLATE
+    repos:
+      - auto-margin/automargin-assets
+      - auto-margin/automargin-client
+      - auto-margin/automargin-platform
