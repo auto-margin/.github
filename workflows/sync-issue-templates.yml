@@ -1,0 +1,24 @@
+name: Sync issue templates
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - ".github/ISSUE_TEMPLATE/**"
+      - "sync.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Repo file sync
+        uses: Redocly/repo-file-sync-action@v1
+        with:
+          config: sync.yml
+          # Use a PAT so it can open PRs in other repos
+          token: ${{ secrets.ORG_SYNC_TOKEN }}
