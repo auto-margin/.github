@@ -1,0 +1,56 @@
+name: "🛠 Task"
+description: Internal engineering task or work item
+title: "[TASK] "
+labels: ["task"]
+
+body:
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: Task summary
+      description: Short explanation of the task
+      placeholder: Describe what needs to be done
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: Why is this task needed?
+      placeholder: Background, related issues, or motivation
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      description: Define what must be completed for this task
+      placeholder: |
+        - [ ] Implementation complete
+        - [ ] Tests added or updated
+        - [ ] Documentation updated
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      description: What system area does this affect?
+      options:
+        - Backend
+        - Frontend
+        - Infrastructure
+        - Database
+        - DevOps
+        - CI/CD
+        - Documentation
+    validations:
+      required: true
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Additional notes
+      description: Any extra technical information
