@@ -1,0 +1,68 @@
+name: "🚨 Incident"
+description: Production issue, outage, or critical bug
+title: "[INCIDENT] "
+labels: ["incident", "priority:high"]
+
+body:
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: Incident summary
+      description: Describe the problem
+      placeholder: What is happening in production?
+    validations:
+      required: true
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      options:
+        - Critical (service down)
+        - High (major feature broken)
+        - Medium (partial degradation)
+        - Low (minor issue)
+    validations:
+      required: true
+
+  - type: textarea
+    id: impact
+    attributes:
+      label: User impact
+      description: How does this affect users or customers?
+      placeholder: Example: Users cannot log in
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Go to ...
+        2. Click ...
+        3. Error occurs
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs / Monitoring data
+      description: Attach logs, traces, screenshots
+      render: shell
+
+  - type: textarea
+    id: mitigation
+    attributes:
+      label: Temporary mitigation
+      description: Any temporary workaround or fix applied
+
+  - type: textarea
+    id: followup
+    attributes:
+      label: Follow-up actions
+      description: Tasks needed to prevent this in the future
+      placeholder: |
+        - Root cause analysis
+        - Add monitoring
+        - Add tests
