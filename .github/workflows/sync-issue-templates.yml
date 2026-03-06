@@ -17,10 +17,58 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout source repo
+        uses: actions/checkout@v4
 
-      - name: Repo file sync
-        uses: Redocly/repo-file-sync-action@main
-        with:
-          CONFIG_PATH: sync.yml
-          GH_PAT: ${{ secrets.ORG_SYNC_TOKEN }}
+      - name: Set up Git
+        run: |
+          git config --global user.name "auto-margin-bot"
+          git config --global user.email "bot@users.noreply.github.com"
+
+      - name: Sync templates to target repos
+        env:
+          GH_TOKEN: ${{ secrets.ORG_SYNC_TOKEN }}
+        run: |
+          repos=(
+            "auto-margin/automargin-assets"
+            "auto-margin/automargin-client"
+            "auto-margin/automargin-platform"
+          )
+
+          for repo in "${repos[@]}"; do
+            repo_name=$(basename "$repo")
+            branch="sync-issue-templates"
+
+            echo "Processing $repo..."
+
+            rm -rf "$repo_name"
+            git clone "https://x-access-token:${GH_TOKEN}@github.com/${repo}.git" "$repo_name"
+
+            mkdir -p "$repo_name/.github/ISSUE_TEMPLATE"
+            cp -R .github/ISSUE_TEMPLATE/* "$repo_name/.github/ISSUE_TEMPLATE/"
+
+            cd "$repo_name"
+
+            git checkout -B "$branch"
+
+            git add .github/ISSUE_TEMPLATE
+
+            if git diff --cached --quiet; then
+              echo "No changes for $repo"
+              cd ..
+              continue
+            fi
+
+            git commit -m "chore: sync issue templates"
+            git push -f origin "$branch"
+
+            gh pr create \
+              --repo "$repo" \
+              --base main \
+              --head "$branch" \
+              --title "chore: sync issue templates" \
+              --body "This PR syncs the latest issue templates from the organization .github repository." \
+              || echo "PR may already exist for $repo"
+
+            cd ..
+          done
