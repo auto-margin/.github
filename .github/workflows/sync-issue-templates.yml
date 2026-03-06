@@ -22,5 +22,5 @@ jobs:
       - name: Repo file sync
         uses: Redocly/repo-file-sync-action@main
         with:
-          config: sync.yml
-          token: ${{ secrets.ORG_SYNC_TOKEN }}
+          CONFIG_PATH: sync.yml
+          GH_PAT: ${{ secrets.ORG_SYNC_TOKEN }}
