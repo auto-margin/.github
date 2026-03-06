@@ -47,14 +47,14 @@ If you’d like to collaborate or apply for a position, please reach out via ema
 
 <br/>
 
-**📧 Email:** [contact@auto-margin.com](mailto:contact@auto-margin.com?subject=Application%20-%20Developer%20Position%20at%20Auto%20Margin)  
+**📧 Email:** [to@auto-margin.com](mailto:to@auto-margin.com?subject=Application%20-%20Developer%20Position%20at%20Auto%20Margin)  
   
 > [!NOTE]
 >  Please use the subject line:
 >  **Application – Developer Position at Auto Margin**
 <br/>
 
-**🌍 Website:** [https://www.auto-margin.com](https://www.automargin.eu)  
+**🌍 Website:** [https://www.auto-margin.com](https://www.auto-margin.com)  
 **💼 LinkedIn:** [https://www.linkedin.com/company/auto-margin](https://www.linkedin.com/company/auto-margin)  
 
 ---
